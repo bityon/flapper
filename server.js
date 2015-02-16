@@ -1,13 +1,11 @@
+var http = require("http");
 var express = require("express");
 var path = require("path");
-var app = express();
+var router = express();
+var server = http.createServer(router);
 
-app.use(express.static(__dirname + 'client'));
-// app.engine('jade', require('jade').__express);
-// app.engine('html', require('ejs').renderFile);
+router.use(express.static(path.resolve(__dirname, 'client')));
 
-// app.get('/', function (req, res) {
-//     res.render('index.html');
-// });
+//.use(express.static(__dirname + 'client'));
 
-app.listen(3000);
+server.listen(3000); 
